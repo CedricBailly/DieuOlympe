@@ -1,10 +1,11 @@
+package resource;
 
 import java.util.*;
 
 /**
  * 
  */
-public abstract class Cultural extends Resource {
+public class Cultural extends Resource {
 
 	/**
 	 * Default constructor

@@ -1,10 +1,11 @@
+package resource;
 
 import java.util.*;
 
 /**
  * 
  */
-public abstract class Manufactured extends Physical {
+public class Manufactured extends Physical {
 
 	/**
 	 * Default constructor

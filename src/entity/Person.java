@@ -1,15 +1,16 @@
+package entity;
 
 import java.util.*;
 
 /**
  * 
  */
-public abstract class Primary extends Physical {
+public class Person extends Entity {
 
 	/**
 	 * Default constructor
 	 */
-	public Primary() {
+	public Person() {
 	}
 
 }

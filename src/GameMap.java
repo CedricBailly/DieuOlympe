@@ -4,17 +4,17 @@ import java.util.*;
 /**
  * 
  */
-public class Resource {
+public class GameMap {
 
 	/**
 	 * Default constructor
 	 */
-	public Resource() {
+	public GameMap() {
 	}
 
 	/**
 	 * 
 	 */
-	private String name;
+	private Set<Building> buildings;
 
 }

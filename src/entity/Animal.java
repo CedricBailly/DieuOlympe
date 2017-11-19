@@ -1,15 +1,16 @@
+package entity;
 
 import java.util.*;
 
 /**
  * 
  */
-public abstract class Delivery {
+public class Animal extends Entity {
 
 	/**
 	 * Default constructor
 	 */
-	public Delivery() {
+	public Animal() {
 	}
 
 }

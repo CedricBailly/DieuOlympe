@@ -1,10 +1,11 @@
+package building;
 
 import java.util.*;
 
 /**
  * 
  */
-public abstract class Storage extends Building {
+public class Storage extends Building {
 
 	/**
 	 * Default constructor
@@ -23,11 +24,16 @@ public abstract class Storage extends Building {
 	private Set<Physical> stored;
 
 	/**
+	 * 
+	 */
+	private Set<Physical> storable;
+
+	/**
 	 * @param res 
 	 * @param amount 
 	 * @return
 	 */
-	private boolean isStorable(Resource res, int amount) {
+	public boolean isStorable(Physical res, int amount) {
 		// TODO implement here
 		return false;
 	}
@@ -35,10 +41,9 @@ public abstract class Storage extends Building {
 	/**
 	 * @param res 
 	 * @param amount 
-	 * @param int 
 	 * @return
 	 */
-	public boolean store(Resource res, void amount, void int) {
+	public boolean store(Physical res, int amount) {
 		// TODO implement here
 		return false;
 	}

@@ -24,13 +24,19 @@ public class Vector {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || this.getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Vector vector = (Vector) o;
-        return this.x == vector.x && this.y == vector.y;
+        return Double.compare(vector.x, x) == 0 && Double.compare(vector.y, y) == 0;
     }
 
     @Override
     public int hashCode() {
-        return (int) (31 * this.x + this.y);
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(x);
+        result = (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(y);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
     }
 }

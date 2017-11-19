@@ -19,6 +19,7 @@ public class VectorTest {
     public void testMinus() {
         Vector vec = new Vector(2, 2);
         assertEquals(vec, this.vector.minus(vec));
+        assertEquals(this.vector, this.vector.minus(new Vector()));
     }
 
     @Test

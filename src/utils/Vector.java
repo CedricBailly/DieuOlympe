@@ -16,4 +16,8 @@ public class Vector {
         this.x = x;
         this.y = y;
     }
+
+    public Vector minus(Vector location) {
+        return new Vector(this.x - location.x, this.y - location.y);
+    }
 }

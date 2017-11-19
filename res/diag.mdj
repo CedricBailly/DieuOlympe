@@ -113,7 +113,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from building)",
+											"text": "(from model.building)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -492,7 +492,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from resource)",
+											"text": "(from model.resource)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -785,7 +785,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "Vector",
+											"text": "utils.Vector",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -1582,7 +1582,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from entity)",
+											"text": "(from model.entity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -2355,7 +2355,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from building)",
+											"text": "(from model.building)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -2906,7 +2906,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from entity)",
+											"text": "(from model.entity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -3829,7 +3829,7 @@
 									},
 									"edgePosition": 0,
 									"underline": false,
-									"text": "-resource",
+									"text": "-model.resource",
 									"horizontalAlignment": 2,
 									"verticalAlignment": 5,
 									"wordWrap": false
@@ -4100,7 +4100,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from resource)",
+											"text": "(from model.resource)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -4531,7 +4531,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from resource)",
+											"text": "(from model.resource)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -4962,7 +4962,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from resource)",
+											"text": "(from model.resource)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -5393,7 +5393,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from resource)",
+											"text": "(from model.resource)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -6247,7 +6247,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from building)",
+											"text": "(from model.building)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -7615,7 +7615,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from building)",
+											"text": "(from model.building)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -8981,7 +8981,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from entity)",
+											"text": "(from model.entity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -9555,7 +9555,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from entity)",
+											"text": "(from model.entity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -9986,7 +9986,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from entity)",
+											"text": "(from model.entity)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -10391,7 +10391,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "GameMap",
+											"text": "model.GameMap",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -11102,7 +11102,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "GameLogic",
+											"text": "model.GameLogic",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -12267,7 +12267,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "building",
+											"text": "model.building",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -12442,7 +12442,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "resource",
+											"text": "model.resource",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -12617,7 +12617,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "entity",
+											"text": "model.entity",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -12734,7 +12734,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Vector",
+					"name": "utils.Vector",
 					"visibility": "public",
 					"attributes": [
 						{
@@ -12785,7 +12785,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "GameMap",
+					"name": "model.GameMap",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -12847,7 +12847,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "GameLogic",
+					"name": "model.GameLogic",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -13005,7 +13005,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "building",
+					"name": "model.building",
 					"ownedElements": [
 						{
 							"_type": "UMLClass",
@@ -13813,7 +13813,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "resource",
+					"name": "model.resource",
 					"ownedElements": [
 						{
 							"_type": "UMLClass",
@@ -13973,7 +13973,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "entity",
+					"name": "model.entity",
 					"ownedElements": [
 						{
 							"_type": "UMLClass",
@@ -14191,7 +14191,7 @@
 										"_parent": {
 											"$ref": "AAAAAAFf1Mrv+GjOXM8="
 										},
-										"name": "resource",
+										"name": "model.resource",
 										"reference": {
 											"$ref": "AAAAAAFf1KkY5FT0Xvo="
 										},

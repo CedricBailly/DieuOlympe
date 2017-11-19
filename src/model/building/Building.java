@@ -20,7 +20,7 @@ public abstract class Building {
      */
     private Vector dimension;
 
-    public Building(String name, Vector location, Vector dimension) {
+    protected Building(String name, Vector location, Vector dimension) {
         this.name = name;
         this.location = location;
         this.dimension = dimension;

@@ -4,7 +4,10 @@ import model.building.Building;
 import model.entity.Entity;
 import utils.Vector;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static utils.Constant.MAP_SIZE;
 
 /**
  * Class which handle the logic of the game
@@ -20,13 +23,19 @@ public class GameLogic {
      */
     private List<Entity> entities;
 
+    public GameLogic() {
+        this.map = new GameMap(MAP_SIZE);
+        this.entities = new ArrayList<>();
+    }
+
     /**
      * this method should be called at every frame
      *
      * @param now the time between this call of the method and the last call
      */
     public void update(long now) {
-        // TODO
+        this.entities.addAll(this.map.update(now));
+        this.entities.forEach(e -> e.update(now));
     }
 
     /**

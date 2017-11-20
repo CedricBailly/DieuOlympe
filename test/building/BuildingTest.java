@@ -1,7 +1,7 @@
 package building;
 
 import model.building.Building;
-import model.entity.Person;
+import model.entity.Entity;
 import org.junit.Before;
 import org.junit.Test;
 import utils.Vector;
@@ -19,12 +19,12 @@ public class BuildingTest {
     public void init(){
         this.building = new Building("B",new Vector(),new Vector(4,4)) {
             @Override
-            public Optional<Person> update(long now) {
+            public Optional<Entity> update(long now) {
                 return Optional.empty();
             }
 
             @Override
-            protected Person createPerson() {
+            protected Entity createEntity() {
                 return null;
             }
         };
@@ -57,12 +57,12 @@ public class BuildingTest {
 
     @Test
     public void testContactHalfArea(){
-        assertTrue(this.building.contact(new Vector(),new Vector(2,2)));
+        assertTrue(this.building.contact(new Vector(),new Vector(2,4)));
     }
 
     @Test
     public void testNoContact(){
-        assertFalse(this.building.contact(new Vector(4,4),new Vector(4,4)));
+        assertFalse(this.building.contact(new Vector(3,4),new Vector(4,4)));
     }
 
 }

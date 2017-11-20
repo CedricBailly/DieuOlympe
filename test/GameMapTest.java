@@ -1,6 +1,6 @@
 import model.GameMap;
 import model.building.Building;
-import model.entity.Person;
+import model.entity.Entity;
 import org.junit.Before;
 import org.junit.Test;
 import utils.Vector;
@@ -23,12 +23,12 @@ public class GameMapTest {
         assertTrue(this.map.isClear(new Vector(), new Vector(4, 4)));
         this.map.create(new Building("B", new Vector(), new Vector(4, 4)) {
             @Override
-            public Optional<Person> update(long now) {
+            public Optional<Entity> update(long now) {
                 return Optional.empty();
             }
 
             @Override
-            protected Person createPerson() {
+            protected Entity createEntity() {
                 return null;
             }
         });
@@ -40,12 +40,12 @@ public class GameMapTest {
         assertEquals(0, this.map.getBuildings().size());
         this.map.create(new Building("B", new Vector(), new Vector()) {
             @Override
-            public Optional<Person> update(long now) {
+            public Optional<Entity> update(long now) {
                 return Optional.empty();
             }
 
             @Override
-            protected Person createPerson() {
+            protected Entity createEntity() {
                 return null;
             }
         });

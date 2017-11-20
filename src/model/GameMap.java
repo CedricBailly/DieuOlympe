@@ -1,38 +1,49 @@
 package model;
 
 import model.building.Building;
+import model.entity.Entity;
 import utils.Vector;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
-/**
- * Class which represent the map of the game
- */
+
 public class GameMap {
 
-    /**
-     * the size of the map
-     */
     private int size;
-    /**
-     * matric of the tile of the map
-     */
     private int[][] terrains;
-    /**
-     * the list of the buildings in the game
-     */
     private List<Building> buildings;
 
     public GameMap(int size) {
         this.size = size;
-        this.terrains = new int[size][size];
+        this.terrains = new int[this.size * 2 - 1][];
+        for (int i = 0; i < this.terrains.length; i++) {
+            if (i < this.terrains.length / 2)
+                this.terrains[i] = new int[i * 2 + 1];
+            else
+                this.terrains[i] = new int[(this.terrains.length - i) * 2 + 1];
+        }
         this.generate();
         this.buildings = new ArrayList<>();
     }
 
-    public void generate() {
+    /**
+     * this method should be called at every frame
+     *
+     * @param now the time between this call of the method and the last call
+     */
+    public List<Entity> update(long now) {
+        return this.buildings.stream()
+                .map(b -> b.update(now)).filter(Optional::isPresent)
+                .map(Optional::get).collect(Collectors.toList());
+    }
+
+    /**
+     * generate a random map
+     */
+    private void generate() {
         //todo
     }
 

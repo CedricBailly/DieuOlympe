@@ -1,50 +1,48 @@
 package model.building;
 
-import model.entity.Person;
+import model.entity.Entity;
 import utils.Vector;
 
 import java.util.Optional;
+
+import static utils.Constant.HOUSE_DIMENSION;
+import static utils.Constant.HOUSE_VACANCIES;
+import static utils.Constant.HOUSE_NAME;
 
 /**
  *
  */
 public class House extends Building {
 
-	/*todo : private State state;*/
-
-    /**
-     * the number of residents in the house
-     */
     private int residents;
-    /**
-     * the amount of vacancies in the house
-     */
     private int vacancies;
+    private boolean incoming;
 
-    public House(String name, Vector location, Vector dimension, int vacancies) {
-        super(name, location, dimension);
+    public House(Vector location) {
+        super(HOUSE_NAME, location, HOUSE_DIMENSION);
         this.residents = 0;
-        this.vacancies = vacancies;//todo
+        this.vacancies = HOUSE_VACANCIES;
     }
 
-    /**
-     * method to call when  new residents are coming into the house
-     *
-     * @param number the number of new resident
-     */
     private void newResident(int number) {
-        // TODO implement here
+        this.residents += number;
+        this.vacancies -= number;
+        this.incoming = false;
     }
 
     @Override
-    public Optional<Person> update(long now) {
-        //todo
+    public Optional<Entity> update(long now) {
+        if (this.vacancies > 0 && !this.incoming) {
+            this.incoming = true;
+            return Optional.of(this.createEntity());
+        }
         return Optional.empty();
     }
 
     @Override
-    protected Person createPerson() {
+    protected Entity createEntity() {
         //todo
         return null;
     }
+
 }

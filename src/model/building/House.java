@@ -5,11 +5,11 @@ import utils.Vector;
 
 import java.util.Optional;
 
-public class House extends Building {
+import static utils.ConstantModel.HOUSE_DIMENSION;
+import static utils.ConstantModel.HOUSE_NAME;
+import static utils.ConstantModel.HOUSE_VACANCIES;
 
-    private static final String HOUSE_NAME = "House";
-    private static final int HOUSE_VACANCIES = 8;
-    private static final Vector HOUSE_DIMENSION = new Vector(2,2);
+public class House extends Building {
 
     private int residents;
     private int vacancies;
@@ -31,7 +31,7 @@ public class House extends Building {
     public Optional<Entity> update(long now) {
         if (this.vacancies > 0 && !this.incoming) {
             this.incoming = true;
-            return Optional.of(this.createEntity());
+            return Optional.empty();
         }
         return Optional.empty();
     }

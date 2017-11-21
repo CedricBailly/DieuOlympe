@@ -1,8 +1,5 @@
 package utils;
 
-/**
- * Class which represent a vector in two dimensions
- */
 public class Vector {
 
     public double x;

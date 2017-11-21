@@ -12,63 +12,52 @@ import java.util.stream.Collectors;
 public class GameMap {
 
     private int size;
-    private int[][] terrains;
+    private Terrain[][] terrains;
     private List<Building> buildings;
 
     public GameMap(int size) {
         this.size = size;
-        this.terrains = new int[this.size * 2 - 1][];
-        for (int i = 0; i < this.terrains.length; i++) {
-            if (i < this.terrains.length / 2)
-                this.terrains[i] = new int[i * 2 + 1];
-            else
-                this.terrains[i] = new int[(this.terrains.length - i) * 2 + 1];
-        }
+        this.terrains = new Terrain[this.size][this.size];
         this.generate();
         this.buildings = new ArrayList<>();
     }
 
-    /**
-     * this method should be called at every frame
-     *
-     * @param now the time between this call of the method and the last call
-     */
     public List<Entity> update(long now) {
         return this.buildings.stream()
                 .map(b -> b.update(now)).filter(Optional::isPresent)
                 .map(Optional::get).collect(Collectors.toList());
     }
 
-    /**
-     * generate a random map
-     */
     private void generate() {
-        //todo
+        for (int i = 0; i < this.terrains.length; i++) {
+            for (int j = 0; j < this.terrains[0].length; j++) {
+                this.terrains[i][j] = Terrain.WASTE_LAND;
+            }
+        }
     }
 
-    /**
-     * @param location  the top left corner of the area to test
-     * @param dimension the dimension of the area
-     * @return if the area is clear (no building in it)
-     */
     public boolean isClear(Vector location, Vector dimension) {
         return this.buildings.stream().filter(b -> b.contact(location, dimension)).collect(Collectors.toList()).isEmpty();
     }
 
-    /**
-     * add the new building to the list
-     *
-     * @param building the new building to add
-     */
     public void create(Building building) {
         this.buildings.add(building);
     }
 
-    public List<Building> getBuildings() {
-        return this.buildings;
+    public List<Building> buildingsIn(Camera camera) {
+        return this.buildings.stream().filter(camera::isIn).collect(Collectors.toList());
     }
 
-    public int[][] getTerrains() {
-        return this.terrains;
+    public Terrain[][] terrainsIn(Camera camera) {
+        Vector dimension = camera.getDimension();
+        Vector location = camera.getLocation();
+        Terrain[][] tmp = new Terrain[(int) dimension.x][(int) dimension.x];
+        for (int i = (int) (location.x) - 1; i < dimension.x + location.x + 1; i++) {
+            for (int j = (int) (location.y) - 1; j < dimension.y + location.y + 1; j++) {
+                tmp[i - (int) location.x - 1][j - (int) location.y - 1] = this.terrains[i][j];
+            }
+        }
+        return tmp;
     }
+
 }

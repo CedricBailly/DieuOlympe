@@ -58,4 +58,7 @@ public class GameLogic {
             this.map.create(building);
     }
 
+    public GameMap getMap() {
+        return this.map;
+    }
 }

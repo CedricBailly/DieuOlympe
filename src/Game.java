@@ -16,6 +16,9 @@ public class Game extends Application {
         this.logic = new GameLogic();
         this.view = new GameView(this.logic);
         stage.setScene(new Scene(this.view));
+        stage.setMaximized(true);
+        this.view.init();
+
         stage.show();
 
         this.createTimer().start();

@@ -5,14 +5,11 @@ import utils.Vector;
 
 import java.util.Optional;
 
-import static utils.Constant.HOUSE_DIMENSION;
-import static utils.Constant.HOUSE_VACANCIES;
-import static utils.Constant.HOUSE_NAME;
-
-/**
- *
- */
 public class House extends Building {
+
+    private static final String HOUSE_NAME = "House";
+    private static final int HOUSE_VACANCIES = 8;
+    private static final Vector HOUSE_DIMENSION = new Vector(2,2);
 
     private int residents;
     private int vacancies;
@@ -41,7 +38,6 @@ public class House extends Building {
 
     @Override
     protected Entity createEntity() {
-        //todo
         return null;
     }
 

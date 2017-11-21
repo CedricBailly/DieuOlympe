@@ -7,20 +7,11 @@ import java.util.Optional;
 
 public abstract class Building {
 
-    /**
-     * the name of the building
-     */
     private String name;
-    /**
-     * the location of the building
-     */
     private Vector location;
-    /**
-     * the dimension of the building
-     */
     private Vector dimension;
 
-    protected Building(String name, Vector location, Vector dimension) {
+    public Building(String name, Vector location, Vector dimension) {
         this.name = name;
         this.location = location;
         this.dimension = dimension;

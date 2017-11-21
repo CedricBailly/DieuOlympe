@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-
 public class GameMap {
 
     private int size;
@@ -67,5 +66,9 @@ public class GameMap {
 
     public List<Building> getBuildings() {
         return this.buildings;
+    }
+
+    public int[][] getTerrains() {
+        return this.terrains;
     }
 }

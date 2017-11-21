@@ -1,6 +1,8 @@
-import model.GameMap;
+
+import javafx.scene.image.ImageView;
 import model.building.Building;
 import model.entity.Entity;
+import model.map.GameMap;
 import org.junit.Before;
 import org.junit.Test;
 import utils.Vector;
@@ -23,6 +25,11 @@ public class GameMapTest {
         assertTrue(this.map.isClear(new Vector(), new Vector(4, 4)));
         this.map.create(new Building("B", new Vector(), new Vector(4, 4)) {
             @Override
+            public ImageView getView() {
+                return null;
+            }
+
+            @Override
             public Optional<Entity> update(long now) {
                 return Optional.empty();
             }
@@ -39,6 +46,11 @@ public class GameMapTest {
     public void testCreate() {
         assertEquals(0, this.map.getBuildings().size());
         this.map.create(new Building("B", new Vector(), new Vector()) {
+            @Override
+            public ImageView getView() {
+                return null;
+            }
+
             @Override
             public Optional<Entity> update(long now) {
                 return Optional.empty();

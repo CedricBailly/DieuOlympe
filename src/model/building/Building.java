@@ -2,10 +2,11 @@ package model.building;
 
 import model.entity.Entity;
 import utils.Vector;
+import viewcontroller.Displayable;
 
 import java.util.Optional;
 
-public abstract class Building {
+public abstract class Building implements Displayable{
 
     private String name;
     private Vector location;
@@ -17,19 +18,8 @@ public abstract class Building {
         this.dimension = dimension;
     }
 
-    /**
-     * this method should be called at every frame
-     *
-     * @param now the time between this call of the method and the last call
-     * @return an object of Person if the building created one.
-     */
     public abstract Optional<Entity> update(long now);
 
-    /**
-     * method called when the building need to create an object of Person
-     *
-     * @return the person created by the building
-     */
     protected abstract Entity createEntity();
 
     public boolean contact(Vector location, Vector dimension) {

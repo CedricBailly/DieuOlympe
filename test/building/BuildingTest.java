@@ -1,5 +1,6 @@
 package building;
 
+import javafx.scene.image.ImageView;
 import model.building.Building;
 import model.entity.Entity;
 import org.junit.Before;
@@ -18,6 +19,11 @@ public class BuildingTest {
     @Before
     public void init(){
         this.building = new Building("B",new Vector(),new Vector(4,4)) {
+            @Override
+            public ImageView getView() {
+                return null;
+            }
+
             @Override
             public Optional<Entity> update(long now) {
                 return Optional.empty();

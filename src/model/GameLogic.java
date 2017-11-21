@@ -2,6 +2,8 @@ package model;
 
 import model.building.Building;
 import model.entity.Entity;
+import model.map.GameMap;
+import model.map.Terrain;
 import utils.Vector;
 
 import java.util.ArrayList;
@@ -41,4 +43,9 @@ public class GameLogic {
     public List<Building> buildingsOnDisplay(){
         return this.map.buildingsIn(this.camera);
     }
+
+    public Terrain[][] terrainsOnDisplay(){
+        return this.map.terrainsIn(this.camera);
+    }
+
 }

@@ -2,7 +2,12 @@ package viewcontroller;
 
 import javafx.scene.Parent;
 import model.GameLogic;
+import model.building.Building;
+import model.building.House;
+import model.map.Terrain;
 import utils.Vector;
+
+import java.util.List;
 
 public class GameView extends Parent {
 
@@ -19,13 +24,40 @@ public class GameView extends Parent {
             mousePos.x = event.getX();
             mousePos.y = event.getY();
         });
-
     }
 
     public void update() {
-
+        this.clear();
+        this.displayMap(this.logic.terrainsOnDisplay());
+        this.displayBuildings(this.logic.buildingsOnDisplay());
     }
 
+    private void clear() {
+        this.getChildren().removeAll(this.getChildren());
+    }
 
+    private void displayBuildings(List<Building> buildings) {
+        buildings.forEach(b -> this.getChildren().add(this.createBuildingView(b)));
+    }
+
+    private BuildingView createBuildingView(Building b) {
+        return new BuildingView(b);
+    }
+
+    private void displayMap(Terrain[][] terrains) {
+        for (int i = 0; i < terrains.length; i++) {
+            for (int j = 0; j < terrains[0].length; j++) {
+                this.getChildren().add(this.createCell(new Vector(i, j), terrains[i][j]));
+            }
+        }
+    }
+
+    private Cell createCell(Vector vector, Terrain terrain) {
+        Cell c = new Cell(vector, terrain);
+        c.setOnMousePressed(event -> {
+            this.logic.create(new House(c.getLocation()));
+        });
+        return c;
+    }
 
 }

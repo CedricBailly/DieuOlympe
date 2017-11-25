@@ -1,51 +1,43 @@
 package model;
 
 import model.building.Building;
-import model.entity.Entity;
 import model.map.GameMap;
 import model.map.Terrain;
 import utils.Vector;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static utils.ConstantModel.CAMERA_DIMENSION;
-import static utils.ConstantModel.MAP_SIZE;
+import java.util.stream.Collectors;
 
 public class GameLogic {
 
+    private static final Vector CAMERA_DIMENSION = new Vector(23, 45);
+    private static final int MAP_SIZE = 1000;
+
     private GameMap map;
     private Camera camera;
-    private List<Entity> entities;
+    private List<Building> buildings;
 
     public GameLogic() {
         this.map = new GameMap(MAP_SIZE);
         this.camera = new Camera(new Vector(), CAMERA_DIMENSION);
-        this.entities = new ArrayList<>();
+        this.buildings = new ArrayList<>();
     }
 
-    public void update(long now) {
-        this.entities.addAll(this.map.update(now));
-        this.entities.forEach(e -> e.update(now));
+    public List<Building> buildingsOnDisplay() {
+        return this.buildings.stream().filter(camera::isIn).collect(Collectors.toList());
     }
 
-    public boolean canCreate(Building building) {
-        Vector dimension = building.getDimension();
-        Vector location = building.getLocation();
-        return this.map.isClear(location, dimension);
-    }
-
-    public void create(Building building) {
-        if (this.canCreate(building))
-            this.map.create(building);
-    }
-
-    public List<Building> buildingsOnDisplay(){
-        return this.map.buildingsIn(this.camera);
-    }
-
-    public Terrain[][] terrainsOnDisplay(){
+    public Terrain[][] mapOnDisplay() {
         return this.map.terrainsIn(this.camera);
     }
 
+    public void createBuilding(Building building) {
+        if(this.buildings.stream().filter(b -> this.map.contact(building,b) ).collect(Collectors.toList()).isEmpty())
+            this.buildings.add(building);
+    }
+
+    public void update(long l) {
+
+    }
 }

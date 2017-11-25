@@ -9,6 +9,10 @@ public class Vector implements Comparable {
         this(0, 0);
     }
 
+    public Vector(Vector vector) {
+        this(vector.x, vector.y);
+    }
+
     public Vector(double x, double y) {
         this.x = x;
         this.y = y;
@@ -16,6 +20,10 @@ public class Vector implements Comparable {
 
     public Vector minus(Vector location) {
         return new Vector(this.x - location.x, this.y - location.y);
+    }
+
+    public Vector add(Vector location) {
+        return new Vector(this.x + location.x, this.y + location.y);
     }
 
     @Override
@@ -45,8 +53,9 @@ public class Vector implements Comparable {
     @Override
     public int compareTo(Object o) {
         Vector vec = (Vector) o;
-        if(this.y < vec.y ) return -1 ;
-        if(this.y > vec.y ) return 1 ;
+        if (this.y < vec.y) return -1;
+        if (this.y > vec.y) return 1;
         return Double.compare(this.x, vec.x);
     }
+
 }

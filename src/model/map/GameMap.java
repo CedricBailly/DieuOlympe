@@ -1,62 +1,38 @@
 package model.map;
 
-import javafx.scene.image.Image;
 import model.Camera;
 import model.building.Building;
-import model.entity.Entity;
 import utils.Vector;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class GameMap {
 
     private int size;
     private Terrain[][] terrains;
-    private List<Building> buildings;
 
     public GameMap(int size) {
         this.size = size;
         this.terrains = new Terrain[this.size][this.size];
         this.generate();
-        this.buildings = new ArrayList<>();
-    }
-
-    public List<Entity> update(long now) {
-        return this.buildings.stream()
-                .map(b -> b.update(now)).filter(Optional::isPresent)
-                .map(Optional::get).collect(Collectors.toList());
     }
 
     private void generate() {
         for (int i = 0; i < this.terrains.length; i++)
             for (int j = 0; j < this.terrains[0].length; j++)
                 this.terrains[i][j] = Terrain.WASTE_LAND;
-    }
+    }//Todo generate a random map
 
-    public boolean isClear(Vector location, Vector dimension) {
-        return this.buildings.stream().filter(b -> b.contact(location, dimension)).collect(Collectors.toList()).isEmpty()
-                && this.terrainsIsClear(location, dimension);
-    }
-
-    private boolean terrainsIsClear(Vector location, Vector dimension) {
-        for (int i = (int) location.x; i < location.x + dimension.x; i++)
-            for (int j = (int) location.y; j < location.y + dimension.y; j++)
-                if (!this.terrains[i][j].buildableArea()) return false;
-        return true;
-    }
-
-    public void create(Building building) {
-        int i = 0;
-        while (i < this.buildings.size() && this.buildings.get(i).getLocation().compareTo(building.getLocation()) < 0) i++;
-        this.buildings.add(i, building);
-    }
-
-    public List<Building> buildingsIn(Camera camera) {
-        return this.buildings.stream().filter(camera::isIn).collect(Collectors.toList());
-    }
+    public Vector getPosition(Vector from, Vector path) {
+        Vector to = new Vector(from);
+        for (int i = 0; i < (int) path.y - 1; i++)  /* /!\ the cast may fuck up everything */
+            to = to.minus((to.y % 2 == 0) ? new Vector(1, 1) : new Vector(0, 1));
+        for (int i = 0; i < (int) path.x - 1; i++)  /* /!\ the cast may fuck up everything */
+            to = to.add((to.y % 2 == 0) ? new Vector(0, -1) : new Vector(1, -1));
+        return to;
+    }//Todo not ready to use
 
     public Terrain[][] terrainsIn(Camera camera) {
         Vector dimension = camera.getDimension();
@@ -70,8 +46,7 @@ public class GameMap {
         return tmp;
     }
 
-    public List<Building> getBuildings() {
-        return this.buildings;
-    }
-
+    public boolean contact(Building b1, Building b2) {
+        return false;
+    }//Todo method for forbid contact between two building
 }

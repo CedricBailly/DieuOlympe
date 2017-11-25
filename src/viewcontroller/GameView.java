@@ -3,7 +3,6 @@ package viewcontroller;
 import javafx.scene.Parent;
 import model.GameLogic;
 import model.building.Building;
-import model.building.House;
 import model.map.Terrain;
 import utils.Vector;
 
@@ -28,7 +27,7 @@ public class GameView extends Parent {
 
     public void update() {
         this.clear();
-        this.displayMap(this.logic.terrainsOnDisplay());
+        this.displayMap(this.logic.mapOnDisplay());
         this.displayBuildings(this.logic.buildingsOnDisplay());
     }
 
@@ -53,11 +52,9 @@ public class GameView extends Parent {
     }
 
     private Cell createCell(Vector vector, Terrain terrain) {
-        Cell c = new Cell(vector, terrain);
-        c.setOnMousePressed(event -> {
-            this.logic.create(new House(c.getLocation()));
-        });
-        return c;
+        Cell cell = new Cell(vector, terrain);
+        cell.setOnMousePressed(event -> this.logic.createBuilding(new Building(vector)));
+        return cell;
     }
 
 }

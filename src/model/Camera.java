@@ -13,15 +13,15 @@ public class Camera {
         this.dimension = dimension;
     }
 
-    public boolean isIn(Building building) {
-        return building.contact(this.location, this.dimension);
-    }
-
     public Vector getDimension() {
         return this.dimension;
     }
 
     public Vector getLocation() {
         return this.location;
+    }
+
+    public boolean isIn(Building building) {
+        return true; //todo
     }
 }
